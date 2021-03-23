@@ -4,5 +4,5 @@ Do stworzenia bazy danych biblioteki zastosowano podstawowe mechanizmy języka z
 
 Za pomocą PL/SQL stworzono:
 
-procedury
-wyzwalacze
+- procedury
+- wyzwalacze
