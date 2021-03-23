@@ -1,0 +1,214 @@
+CREATE TABLE karta_czytelnika
+(
+        id_karty        INTEGER        	CONSTRAINT PK_ID_KARTY PRIMARY KEY
+    ,   login           VARCHAR2(30)    NOT NULL
+    ,   haslo           VARCHAR2(30)    NOT NULL
+    ,   telefon			    VARCHAR2(16)
+    ,   email           VARCHAR2(30)
+    ,   data_zal        DATE            NOT NULL
+);
+
+CREATE TABLE osoba
+(
+        id_osoby        INTEGER         CONSTRAINT PK_ID_OSOBY PRIMARY KEY
+    ,   id_czyt         INTEGER         NOT NULL
+    ,   imie            VARCHAR2(30)    NOT NULL
+    ,   nazwisko        VARCHAR2(30)    NOT NULL
+    ,   id_zamieszkania INTEGER         NOT NULL
+    ,   data_urodzenia  DATE            NOT NULL
+);
+
+CREATE TABLE adres_czyt
+(
+        id_adresu 		  INTEGER         CONSTRAINT PK_ID_ADRESU PRIMARY KEY
+    ,   wojewodztwo     VARCHAR2(30)    NOT NULL
+    ,   miasto          VARCHAR2(30)    NOT NULL
+    ,   ulica           VARCHAR2(30)    NOT NULL
+    ,   numer           VARCHAR2(3)     NOT NULL
+	  ,	  kod_pocztowy	  VARCHAR2(6)		  NOT NULL
+);
+
+CREATE TABLE ksiazka
+(
+        id_ksiazki      INTEGER         CONSTRAINT PK_ID_KSIAZKI PRIMARY KEY
+    ,   id_autora       INTEGER         NOT NULL
+    ,   id_wydania      INTEGER         NOT NULL
+    ,   id_kategorii    INTEGER         NOT NULL
+);
+
+CREATE TABLE kategoria
+(
+		    id_kategorii	  INTEGER			    CONSTRAINT PK_ID_KATEGORII PRIMARY KEY
+	  ,	  nazwa			      VARCHAR2(30)
+);
+
+CREATE TABLE autor
+(
+        id_autora       INTEGER         CONSTRAINT PK_ID_AUTORA PRIMARY KEY
+    ,   imie            VARCHAR2(30)    NOT NULL
+    ,   nazwisko        VARCHAR2(30)    NOT NULL
+    ,   id_kraju        INTEGER         NOT NULL
+);
+
+CREATE TABLE wydanie
+(
+        id_wydania      INTEGER         CONSTRAINT PK_ID_WYDANIA PRIMARY KEY
+    ,   tytul           VARCHAR2(40)    NOT NULL
+    ,   opis            VARCHAR2(300)
+	  ,	  jezyk			      VARCHAR2(30)
+    ,   ile_stron       NUMBER(3)
+    ,   id_wydawnictwa  INTEGER         NOT NULL
+    ,   id_oprawy       INTEGER         NOT NULL
+);
+
+CREATE TABLE oprawa
+(
+		    id_oprawy		    INTEGER			    CONSTRAINT PK_ID_OPRAWY PRIMARY KEY
+	  ,	  nazwa			      VARCHAR2(50)	  NOT NULL
+);
+
+CREATE TABLE wydawnictwo
+(
+	  	  id_wydawnictwa	INTEGER			    CONSTRAINT	PK_ID_WYDAWNICTWA PRIMARY KEY
+	  ,	  nazwa			      VARCHAR2(50)	  NOT NULL
+	  ,	  id_adresu		    INTEGER			    NOT NULL
+	  ,	  telefon			    VARCHAR2(16)
+	  ,	  id_kraju		    INTEGER			    NOT NULL
+);
+
+CREATE TABLE adres_wydawnictwa
+(
+        id_adresu 		  INTEGER         CONSTRAINT PK_ID_ADR_WYDAW PRIMARY KEY
+    ,   wojewodztwo     VARCHAR2(30)    NOT NULL
+    ,   miasto          VARCHAR2(30)    NOT NULL
+    ,   ulica           VARCHAR2(30)    NOT NULL
+    ,   numer           VARCHAR2(3)     NOT NULL
+	  ,	  kod_pocztowy	  VARCHAR2(6)	  	NOT NULL
+);
+
+
+CREATE TABLE kraj
+(
+		    id_kraju		    INTEGER			    CONSTRAINT	PK_ID_KRAJU PRIMARY KEY
+	  ,	  nazwa			      VARCHAR2(30)	  NOT NULL
+	  , 	UNIQUE (id_kraju, nazwa)
+);
+
+CREATE TABLE bibliotekarz
+(
+	  	  id_pracownika	  INTEGER			    CONSTRAINT PK_ID_BIBLIOTE PRIMARY KEY
+	  ,	  imie			      VARCHAR2(30)	  NOT NULL
+	  ,	  nazwisko		    VARCHAR2(30)	  NOT NULL
+);
+
+CREATE TABLE operacja_biblioteczna
+(
+		    id_operacji		  INTEGER			    NOT NULL
+	  ,	  id_ksiazki		  INTEGER 		    NOT NULL
+	  ,	  id_karty		    INTEGER			    NOT NULL
+	  ,	  id_typ_ope		  INTEGER			    NOT NULL
+	  ,	  data_operacji	  DATE			      NOT NULL
+	  ,	  id_pracownika	  INTEGER			    NOT NULL
+	  ,	  do_kiedy		    DATE    
+	  ,	  id_kary			    INTEGER			    NOT NULL
+	
+	  ,	  CONSTRAINT PK_OPER_BIBLIO PRIMARY KEY (id_operacji, id_ksiazki, id_karty)
+	
+);
+
+CREATE TABLE typ_operacji
+(
+	    	id_typ_ope		  INTEGER			    CONSTRAINT PK_ID_TYP_OPE PRIMARY KEY
+	  ,	  nazwa			      VARCHAR2(20)	  NOT NULL
+);
+
+
+CREATE TABLE kary
+(
+		     id_kary			  INTEGER			    NOT NULL	
+	  ,	   id_karty		    INTEGER			    NOT NULL	
+	  ,	   id_operacji		INTEGER			    NOT NULL	
+	  ,	   id_ksiazki		  INTEGER			    NOT NULL	
+	  ,	   do_kiedy		    DATE			
+	  ,	   kwota			    NUMBER(5,2)		
+	
+	  ,    CONSTRAINT PK_ID_KARY_KARTY PRIMARY KEY (id_kary, id_karty)
+);
+
+CREATE TABLE operacje_archiwum
+(
+	  	    event_date			      DATE
+	  ,	    event_type			      VARCHAR2(20)
+	  ,	    old_id_operacji		    INTEGER
+	  ,	    old_id_ksiazki		    INTEGER 		
+	  ,	    old_id_karty		      INTEGER	
+	  ,	    old_id_typ_ope		    INTEGER			
+	  ,	    old_data_operacji	    DATE			
+	  ,	    old_id_pracownika	    INTEGER			
+	  ,	    old_do_kiedy		      DATE
+	  ,	    old_id_kary			      INTEGER
+	  	        
+	  ,	    new_id_operacji		    INTEGER		
+	  ,	    new_id_ksiazki		    INTEGER 		
+	  ,	    new_id_karty		      INTEGER			
+	  ,	    new_id_typ_ope		    INTEGER			
+	  ,	    new_data_operacji	    DATE			
+	  ,	    new_id_pracownika	    INTEGER			
+	  ,	    new_do_kiedy		      DATE	
+	  ,	    new_id_kary			      INTEGER
+);
+
+-- KLUCZE OBCE 			-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- OSOBA
+
+ALTER TABLE osoba
+	ADD CONSTRAINT FK_ID_CZYT_KARTA 	FOREIGN KEY (id_czyt) 			REFERENCES karta_czytelnika(id_karty)	ON DELETE CASCADE;
+ALTER TABLE osoba
+	ADD	CONSTRAINT FK_ID_ZAMIE_ADRES 	FOREIGN KEY (id_zamieszkania) 	REFERENCES adres_czyt(id_adresu) 		ON DELETE CASCADE;
+
+-- KSIAZKA
+
+ALTER TABLE ksiazka
+	ADD CONSTRAINT FK_ID_KAT_KAT		FOREIGN KEY (id_kategorii)		REFERENCES kategoria(id_kategorii) 		ON DELETE CASCADE;
+ALTER TABLE ksiazka
+	ADD CONSTRAINT FK_ID_AUTORA_AUTOR	FOREIGN KEY (id_autora)			REFERENCES autor(id_autora)				ON DELETE CASCADE;
+
+-- AUTOR
+
+
+ALTER TABLE autor
+	ADD	CONSTRAINT FK_ID_KRAJU_KRAJ		FOREIGN KEY (id_kraju)			REFERENCES kraj(id_kraju)				ON DELETE CASCADE;
+	
+-- WYDANIE
+
+ALTER TABLE	wydanie
+	ADD	CONSTRAINT FK_ID_WYDAWNICTWA	FOREIGN KEY (id_wydawnictwa)	REFERENCES wydawnictwo(id_wydawnictwa)	ON DELETE CASCADE;
+ALTER TABLE	wydanie
+	ADD	CONSTRAINT FK_ID_OPRAWY_OPRAWA	FOREIGN KEY (id_oprawy)			REFERENCES oprawa(id_oprawy)			ON DELETE CASCADE;
+		
+-- WYDAWNICTWO
+
+ALTER TABLE wydawnictwo
+	ADD CONSTRAINT FK_ID_AD_AD_WYDAW	FOREIGN KEY (id_adresu)			REFERENCES adres_wydawnictwa(id_adresu)	ON DELETE CASCADE;
+ALTER TABLE wydawnictwo
+	ADD	CONSTRAINT FK_ID_KRAJU_WYDAW	FOREIGN KEY (id_kraju)			REFERENCES kraj(id_kraju)				ON DELETE CASCADE;
+
+-- OPERACJA_BIBLIOTECZNA
+
+
+ALTER TABLE operacja_biblioteczna
+	ADD	CONSTRAINT FK_ID_KARTY_OPE_BIB	FOREIGN KEY (id_karty)			REFERENCES karta_czytelnika(id_karty)	ON DELETE CASCADE;
+ALTER TABLE operacja_biblioteczna	
+	ADD	CONSTRAINT FK_ID_TYP_OPE_OPE	FOREIGN KEY (id_typ_ope)		  REFERENCES typ_operacji(id_typ_ope)		ON DELETE CASCADE;
+ALTER TABLE operacja_biblioteczna	
+	ADD	CONSTRAINT FK_ID_KSIA_KSIA		FOREIGN KEY	(id_ksiazki)		  REFERENCES ksiazka(id_ksiazki)			ON DELETE CASCADE;
+ALTER TABLE operacja_biblioteczna
+	ADD CONSTRAINT KF_ID_PRAC_BIBLIO	FOREIGN KEY (id_pracownika)		REFERENCES bibliotekarz(id_pracownika)	ON DELETE CASCADE;
+	
+-- KARY
+
+ALTER TABLE kary
+	ADD CONSTRAINT FK_ID_KARTY_KARA		FOREIGN KEY (id_karty)			REFERENCES karta_czytelnika(id_karty)	ON DELETE CASCADE;
+ALTER TABLE kary
+	ADD	CONSTRAINT FK_OPE_KSIA_OB		FOREIGN KEY (id_ksiazki, id_operacji, id_karty) REFERENCES operacja_biblioteczna(id_ksiazki, id_operacji, id_karty) ON DELETE CASCADE;
