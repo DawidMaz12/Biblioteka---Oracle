@@ -1,0 +1,183 @@
+-- WYZWALACZ 1
+CREATE OR REPLACE TRIGGER AIUD_HISTORIA_OPERACJI
+AFTER INSERT OR UPDATE OR DELETE
+ON OPERACJA_BIBLIOTECZNA
+FOR EACH ROW
+DECLARE
+BEGIN
+
+	IF inserting THEN
+
+	INSERT INTO operacje_archiwum
+	(
+			event_date			
+		,	event_type			
+		,	old_id_operacji	
+		,	old_id_ksiazki		
+		,	old_id_karty		
+		,	old_id_typ_ope		
+		,	old_data_operacji	
+		,	old_id_pracownika	
+		,	old_do_kiedy
+		,	old_id_kary
+		,	new_id_operacji		
+		,	new_id_ksiazki		
+		,	new_id_karty		
+		,	new_id_typ_ope		
+		,	new_data_operacji	
+		,	new_id_pracownika	
+		,	new_do_kiedy	
+		,	new_id_kary
+	)
+	
+	VALUES
+	(
+			SYSDATE
+		,	'ZAMOWIENIE'
+		,	NULL
+		,	NULL
+		,	NULL
+		,	NULL
+		,	NULL
+		,	NULL
+		,	NULL
+		,	NULL
+		,	:NEW.id_operacji		
+		,	:NEW.id_ksiazki		
+		,	:NEW.id_karty		
+		,	:NEW.id_typ_ope		
+		,	:NEW.data_operacji	
+		,	:NEW.id_pracownika	
+		,	:NEW.do_kiedy	
+		,	:NEW.id_kary
+	);
+	ELSIF updating THEN
+	
+	INSERT INTO operacje_archiwum
+	(
+			event_date			
+		,	event_type			
+		,	old_id_operacji	
+		,	old_id_ksiazki		
+		,	old_id_karty		
+		,	old_id_typ_ope		
+		,	old_data_operacji	
+		,	old_id_pracownika	
+		,	old_do_kiedy
+		,	old_id_kary
+		,	new_id_operacji		
+		,	new_id_ksiazki		
+		,	new_id_karty		
+		,	new_id_typ_ope		
+		,	new_data_operacji	
+		,	new_id_pracownika	
+		,	new_do_kiedy	
+		,	new_id_kary		
+	)
+	
+	VALUES
+	(
+			SYSDATE
+		,	'ODEBRANIE'
+		,	:OLD.id_operacji		
+		,	:OLD.id_ksiazki		
+		,	:OLD.id_karty		
+		,	:OLD.id_typ_ope		
+		,	:OLD.data_operacji	
+		,	:OLD.id_pracownika	
+		,	:OLD.do_kiedy
+		,	:OLD.id_kary
+		,	:NEW.id_operacji		
+		,	:NEW.id_ksiazki		
+		,	:NEW.id_karty		
+		,	:NEW.id_typ_ope		
+		,	:NEW.data_operacji	
+		,	:NEW.id_pracownika	
+		,	:NEW.do_kiedy	
+		,	:NEW.id_kary
+	);
+	
+	-- DELETING
+	ELSE
+	
+		INSERT INTO operacje_archiwum
+	(
+			event_date			
+		,	event_type			
+		,	old_id_operacji	
+		,	old_id_ksiazki		
+		,	old_id_karty		
+		,	old_id_typ_ope		
+		,	old_data_operacji	
+		,	old_id_pracownika	
+		,	old_do_kiedy
+		,	old_id_kary
+		,	new_id_operacji		
+		,	new_id_ksiazki		
+		,	new_id_karty		
+		,	new_id_typ_ope		
+		,	new_data_operacji	
+		,	new_id_pracownika	
+		,	new_do_kiedy	
+		,	new_id_kary		
+	)
+	
+	VALUES
+	(
+			SYSDATE
+		,	'ZWROCENIE'
+		,	:OLD.id_operacji		
+		,	:OLD.id_ksiazki		
+		,	:OLD.id_karty		
+		,	:OLD.id_typ_ope		
+		,	:OLD.data_operacji	
+		,	:OLD.id_pracownika	
+		,	:OLD.do_kiedy
+		,	:OLD.id_kary
+		,	NULL	
+		,	NULL
+		,	NULL
+		,	NULL
+		,	NULL
+		,	NULL
+		,	NULL
+		,	NULL
+	);
+	
+	END IF;
+END;
+/
+
+-- WYZWALACZ 2
+
+CREATE OR REPLACE TRIGGER AI_kary
+AFTER INSERT OR UPDATE OR DELETE
+ON OPERACJA_BIBLIOTECZNA
+FOR EACH ROW
+DECLARE
+BEGIN
+
+	IF inserting THEN
+
+	INSERT INTO kary
+	(
+			id_kary			
+		,	id_karty		
+		,	id_operacji		
+		,	id_ksiazki		
+		,	do_kiedy		
+		,	kwota			
+	)
+
+	VALUES
+	(
+			:NEW.id_kary		
+		,	:NEW.id_karty	
+		,	:NEW.id_operacji		
+		,	:NEW.id_ksiazki	
+		,	NULL
+		,	NULL
+	);
+	END IF;
+END;
+/
