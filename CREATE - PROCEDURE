@@ -1,0 +1,38 @@
+-- PROCEDURA 1
+
+CREATE OR REPLACE PROCEDURE ODBIOR_KSIAZKI(id_ope INTEGER) IS
+	ile DATE;
+BEGIN
+    SELECT  data_operacji INTO ile FROM OPERACJA_BIBLIOTECZNA WHERE id_ope = id_operacji;
+	ile := ile + 30;
+	UPDATE  operacja_biblioteczna SET id_typ_ope = 2, do_kiedy = ile  WHERE id_ope = id_operacji;
+	UPDATE	kary SET do_kiedy = ile where id_ope = id_operacji;
+	EXECUTE OBLICZ_KARY(id_ope);
+END;
+/
+	
+-- PROCEDURA 2
+
+CREATE OR REPLACE PROCEDURE ZWROT_KSIAZKI(id_ope INTEGER) IS
+BEGIN
+	delete from operacja_biblioteczna where id_ope = id_operacji;
+	delete from kary where id_ope=id_operacji;
+end;
+/
+
+-- PROCEDURA 3
+
+CREATE OR REPLACE PROCEDURE oblicz_kary(id_ope INTEGER) IS
+	do_daty DATE;
+	ile		NUMBER(3);
+    ile_kary NUMBER(3);
+BEGIN
+	SELECT do_kiedy INTO do_daty FROM OPERACJA_BIBLIOTECZNA WHERE id_ope = id_operacji;
+	ile := SYSDATE - do_daty;
+	UPDATE kary SET kwota = ile * 0.20 WHERE id_ope = id_operacji AND id_ksia = id_ksiazki;
+    SELECT kwota INTO ile_kary from kary where id_ope = id_operacji;
+	IF ile_kary < 0 THEN
+	UPDATE kary SET kwota = 0 WHERE id_ope = id_operacji AND id_ksia = id_ksiazki;	
+    end if;
+END;
+/
