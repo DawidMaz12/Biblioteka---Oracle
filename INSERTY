@@ -1,0 +1,367 @@
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Polska')    ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Czechy')    ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Francja')   ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Niemcy')    ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Rosja')     ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Wielka Brytania');
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Hiszpania') ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Szwecja')   ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Norwegia')  ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Japonia')   ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Belgia')    ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Holandia')  ;
+INSERT INTO KRAJ (id_kraju, nazwa)	VALUES (SEQ_ID_KRAJU.NEXTVAL, 'Portugalia');
+
+
+
+INSERT INTO BIBLIOTEKARZ (id_pracownika, imie, nazwisko) VALUES (SEQ_ID_BIBLIOTE.NEXTVAL, 'Zbigniew', 'Waleczny');
+INSERT INTO BIBLIOTEKARZ (id_pracownika, imie, nazwisko) VALUES (SEQ_ID_BIBLIOTE.NEXTVAL, 'Wojciech', 'Mleko');
+INSERT INTO BIBLIOTEKARZ (id_pracownika, imie, nazwisko) VALUES (SEQ_ID_BIBLIOTE.NEXTVAL, 'Izabela', 'Mak');
+INSERT INTO BIBLIOTEKARZ (id_pracownika, imie, nazwisko) VALUES (SEQ_ID_BIBLIOTE.NEXTVAL, 'Marta', 'Tort');
+INSERT INTO BIBLIOTEKARZ (id_pracownika, imie, nazwisko) VALUES (SEQ_ID_BIBLIOTE.NEXTVAL, 'Katarzyna', 'Ksiazka');
+
+
+
+INSERT INTO TYP_OPERACJI (id_typ_ope, nazwa) VALUES (SEQ_TYP_OPERACJI.NEXTVAL, 'Zamowienie');
+INSERT INTO TYP_OPERACJI (id_typ_ope, nazwa) VALUES (SEQ_TYP_OPERACJI.NEXTVAL, 'Odebranie');
+INSERT INTO TYP_OPERACJI (id_typ_ope, nazwa) VALUES (SEQ_TYP_OPERACJI.NEXTVAL, 'Zwrocenie');
+
+
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Mazowieckie', 'Warszawa', 'Mala', '26a', '04-552');
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Mazowieckie', 'Warszawa', 'Mala', '27a', '04-552');
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Mazowieckie', 'Warszawa', 'Mala', '28a', '04-552');
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Mazowieckie', 'Warszawa', 'Wielka', '50', '04-574');
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Mazowieckie', 'Warszawa', 'Kwadratowa', '12', '04-374');
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Mazowieckie', 'Warszawa', 'kwadratowa', '20', '04-374');
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Pomorskie', 'Gdansk', 'Gdanska', '12', '32-660');
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Pomorskie', 'Gdansk', 'Gdanska', '14', '32-660');
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Mazowieckie', 'Warszawa', 'Prosta', '67b', '06-120');
+INSERT INTO ADRES_CZYT (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ID_ADRESU.NEXTVAL, 'Mazowieckie', 'Warszawa', 'Krzywa', '50', '01-111');
+
+
+
+INSERT INTO ADRES_WYDAWNICTWA (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ADRES_WYDAW.NEXTVAL, 'Wielkoposlkie', 'Poznan', 'Prawa', '50', '15-111');
+INSERT INTO ADRES_WYDAWNICTWA (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ADRES_WYDAW.NEXTVAL, 'Mazowieckie', 'Warszawa', 'Lewa', '76', '03-164');
+INSERT INTO ADRES_WYDAWNICTWA (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ADRES_WYDAW.NEXTVAL, 'Dolnoslaskie', 'Wroclaw', 'Skosna', '11', '87-181');
+INSERT INTO ADRES_WYDAWNICTWA (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ADRES_WYDAW.NEXTVAL, 'Pomorskie', 'Gdynia', 'Mokra', '32', '65-190');
+INSERT INTO ADRES_WYDAWNICTWA (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ADRES_WYDAW.NEXTVAL, 'Pomorskie', 'Gdynia', 'Sucha', '49', '63-169');
+INSERT INTO ADRES_WYDAWNICTWA (id_adresu, wojewodztwo, miasto, ulica, numer, kod_pocztowy)
+	VALUES (SEQ_ADRES_WYDAW.NEXTVAL, 'Podlaskie', 'Bialystok', 'Ciemna', '75', '56-321');
+	
+	
+	
+INSERT INTO WYDAWNICTWO (id_wydawnictwa, nazwa, id_adresu, telefon, id_kraju)
+	VALUES (SEQ_ID_WYDAWNICTWA.NEXTVAL, 'MAK', 1, '+48 649-912-650', 1);
+INSERT INTO WYDAWNICTWO (id_wydawnictwa, nazwa, id_adresu, telefon, id_kraju)
+	VALUES (SEQ_ID_WYDAWNICTWA.NEXTVAL, 'CPK', 2, '+48 515-812-656', 1);
+INSERT INTO WYDAWNICTWO (id_wydawnictwa, nazwa, id_adresu, telefon, id_kraju)
+	VALUES (SEQ_ID_WYDAWNICTWA.NEXTVAL, 'PNW', 3, '+48 650-132-473', 1);
+INSERT INTO WYDAWNICTWO (id_wydawnictwa, nazwa, id_adresu, telefon, id_kraju)
+	VALUES (SEQ_ID_WYDAWNICTWA.NEXTVAL, 'WNO', 4, '+48 789-992-300', 1);
+INSERT INTO WYDAWNICTWO (id_wydawnictwa, nazwa, id_adresu, telefon, id_kraju)
+	VALUES (SEQ_ID_WYDAWNICTWA.NEXTVAL, 'TAK', 5, '+48 656-145-374', 1);
+INSERT INTO WYDAWNICTWO (id_wydawnictwa, nazwa, id_adresu, telefon, id_kraju)
+	VALUES (SEQ_ID_WYDAWNICTWA.NEXTVAL, 'MIK', 6, '+48 829-845-143', 1);
+
+
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Marek', '123', '+48 712-564-823', 'Marek13@gmail.com', '21/01/01');
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Magda', '321', '+48 423-584-263', 'Magda.Malek@gmail.com', '21/01/10');
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Weronika', 'kwiatek', '+48 937-123-663', 'Weronika@o2.pl', '21/01/11');
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Tomasz', 'Mlotek13', '+48 357-016-957', 'TomaszPL@gmail.com', '21/01/30');
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Agata', 'plotek', '+48 573-068-333', 'Agateczka@tlen.pl', '20/11/01');
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Dawid', 'awoiektm', '+48 958-394-234', 'Miodek@gmail.com', '20/10/10');
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Placek', 'sajdinuwe', '+48 957-500-530', 'Mirek@gmail.com', '21/01/10');
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Katarzyna', 'chomiczek', '+48 234-584-235', 'Usmieszek@gmail.com', '20/09/11');
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Marcin', 'sadmuwae', '+48 235-643-263', 'Marcin@gmail.com', '20/12/10');
+INSERT INTO KARTA_CZYTELNIKA (id_karty, login, haslo, telefon, email, data_zal)
+	VALUES (SEQ_ID_KARTY.NEXTVAL, 'Marcin12', 'sadmnuiowauy', '+48 237-897-262', 'Marcin12@gmail.com', '20/10/18');
+	
+	
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 1, 'Marek', 'Pionek', 1, '93/11/01');
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 2, 'Magda', 'Malek', 2, '93/10/01');
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 3, 'Weronika', 'Twarda', 3, '92/10/10');
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 4, 'Tomasz', 'Polski', 4, '90/01/15');
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 5, 'Agata', 'Wierna', 5, '96/12/10');
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 6, 'Dawid', 'Niemy', 6, '98/04/16');
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 7, 'Miroslaw', 'Solamka', 7, '93/04/01');
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 8, 'Katarzyna', 'Wabik', 8, '99/06/26');
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 9, 'Marcin', 'Kolek', 9, '97/03/01');
+INSERT INTO OSOBA (id_osoby, id_czyt, imie, nazwisko, id_zamieszkania, data_urodzenia)
+	VALUES (SEQ_ID_OSOBY.NEXTVAL, 10, 'Marcin', 'Echo', 10, '89/06/13');
+	
+
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Biografia');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Historia');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Religia');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Kultura');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Kryminal');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Przygoda');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Fantasy');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Powiesc');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Rozwoj osobisty');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Bajka');
+INSERT INTO KATEGORIA (id_kategorii, nazwa)
+	VALUES (SEQ_ID_KATEGORII.NEXTVAL, 'Horror');
+	
+	
+
+INSERT INTO AUTOR (id_autora, imie, nazwisko, id_kraju)
+	VALUES (SEQ_ID_AUTORA.NEXTVAL, 'Joanna', 'Dzik', 1);
+INSERT INTO AUTOR (id_autora, imie, nazwisko, id_kraju)
+	VALUES (SEQ_ID_AUTORA.NEXTVAL, 'Tomasz', 'Pantera', 1);
+INSERT INTO AUTOR (id_autora, imie, nazwisko, id_kraju)
+	VALUES (SEQ_ID_AUTORA.NEXTVAL, 'Sebastian', 'Ptak', 1);
+INSERT INTO AUTOR (id_autora, imie, nazwisko, id_kraju)
+	VALUES (SEQ_ID_AUTORA.NEXTVAL, 'Justyna', 'Zajac', 1);
+INSERT INTO AUTOR (id_autora, imie, nazwisko, id_kraju)
+	VALUES (SEQ_ID_AUTORA.NEXTVAL, 'Magda', 'Ryba', 1);
+INSERT INTO AUTOR (id_autora, imie, nazwisko, id_kraju)
+	VALUES (SEQ_ID_AUTORA.NEXTVAL, 'Marek', 'Rekin', 1);
+INSERT INTO AUTOR (id_autora, imie, nazwisko, id_kraju)
+	VALUES (SEQ_ID_AUTORA.NEXTVAL, 'Alicja', 'Kret', 1);
+	
+	
+	
+INSERT INTO OPRAWA (id_oprawy, nazwa)
+	VALUES (SEQ_ID_OPRAWY.NEXTVAL, 'Twoja oprawa');
+INSERT INTO OPRAWA (id_oprawy, nazwa)
+	VALUES (SEQ_ID_OPRAWY.NEXTVAL, 'Twoja ksiazka');
+INSERT INTO OPRAWA (id_oprawy, nazwa)
+	VALUES (SEQ_ID_OPRAWY.NEXTVAL, 'Przednia strona');
+INSERT INTO OPRAWA (id_oprawy, nazwa)
+	VALUES (SEQ_ID_OPRAWY.NEXTVAL, 'Super wyglad');
+INSERT INTO OPRAWA (id_oprawy, nazwa)
+	VALUES (SEQ_ID_OPRAWY.NEXTVAL, 'Bez bledu');
+	
+	
+	
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Ciemnosc', 'Polski', 321, 1, 1, null);
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Wiara', 'Polski', 120, 3, 4, 'Religie swiata');
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Ptak', 'Polski', 400, 3, 3, null);
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Ptak', 'Angielski', 400, 3, 3, null);
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Projekt', 'Polski', 200, 6, 5, null);
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Piekna istota', 'Polski', 450, 5, 4, null);
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Fajne', 'Polski', 273, 4, 2, null);
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Fajne', 'Polski', 300, 4, 2, null);
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Blysk', 'Polski', 100, 1, 4, null);
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Przyroda', 'Polski', 76, 6, 1, null);
+INSERT INTO WYDANIE (id_wydania, tytul, jezyk, ile_stron, id_wydawnictwa, id_oprawy, opis)
+	VALUES (SEQ_ID_WYDANIA.NEXTVAL, 'Blask', 'Polski', 222, 4, 4, null);
+
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 5 
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 1 , 1, 1);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;
+
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 5 
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 2 , 3, 5);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;	
+	
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 7
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 3 , 2, 6);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;		
+		
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 10
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 2 , 4, 5);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;	
+
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 5 
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 1 , 5, 8);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;	
+	
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 8 
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 4 , 6, 7);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;
+
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 10 
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 7 , 7, 9);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;	
+	
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 15 
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 7 , 8, 9);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;
+
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 8 
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 5 , 9, 11);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;
+	
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 8 
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 6 , 10, 5);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;
+
+DECLARE
+zmienna number (5);
+BEGIN
+zmienna:= 1;
+WHILE zmienna <= 8 
+	LOOP
+		INSERT INTO KSIAZKA (id_ksiazki, id_autora, id_wydania, id_kategorii)
+			VALUES(SEQ_ID_KSIAZKI.NEXTVAL, 6 , 11, 3);
+		zmienna := zmienna + 1;
+	END LOOP;
+END;
+
+
+
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 1, 2, 1, '21/01/29', 1, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 7, 1, 1, '21/01/30', 3, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 14, 3, 1, '21/02/01', 2, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 30, 5, 1, '21/02/01', 2, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 41, 4, 1, '21/02/06', 4, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 50, 6, 1, '21/02/06', 4, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 70, 7, 1, '21/02/10', 5, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 55, 8, 1, '21/02/11', 5, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 14, 9, 1, '21/02/12', 1, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 21, 10, 1, '21/02/15', 2, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 51, 1, 1, '21/02/25', 4, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 22, 2, 1, '21/02/26', 1, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 65, 4, 1, '21/02/26', 3, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 21, 10, 1, '21/02/28', 2, NULL, SEQ_ID_KARY.NEXTVAL);
+INSERT INTO OPERACJA_BIBLIOTECZNA (id_operacji, id_ksiazki, id_karty, id_typ_ope, data_operacji, id_pracownika, do_kiedy, id_kary)
+	VALUES (SEQ_ID_OPERACJI.NEXTVAL, 11, 5, 1, '21/03/15', 1, NULL, SEQ_ID_KARY.NEXTVAL);
