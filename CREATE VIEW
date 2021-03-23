@@ -1,0 +1,28 @@
+CREATE OR REPLACE VIEW CZYTELNICY_VIEW AS
+SELECT id_karty "Nr. karty", imie, nazwisko, data_zal
+FROM karta_czytelnika karta_czyt JOIN osoba ON (karta_czyt.id_karty = osoba.id_czyt);
+
+
+CREATE OR REPLACE VIEW CZYTELNICY_ADRES_VIEW AS
+SELECT id_karty "Nr. karty", imie, nazwisko, telefon, email, miasto, ulica, numer, kod_pocztowy
+FROM karta_czytelnika kar_czyt JOIN osoba ON (karta_czyt.id_karty = osoba.id_czyt)
+	JOIN adres_czyt adres ON (osoba.id_zamieszkania = adres.id_adresu);
+
+
+CREATE OR REPLACE VIEW WYDAWNICTWO_ADRES_VIEW AS
+SELECT id_wydawnictwa "Nr. wydawnictwa", nazwa, telefon, miasto, ulica, numer, kod_pocztowy
+FROM wydawnictwo wydaw JOIN adres_wydawnictwa ad_wydaw ON (wydaw.id_adresu = ad_wydaw.id_adresu);
+	
+	
+CREATE OR REPLACE VIEW KSIAZKI_VIEW AS
+SELECT tytul, kat.nazwa kategoria, imie, nazwisko, wydaw.nazwa wydawca
+FROM ksiazka JOIN wydanie ON (ksiazka.id_wydania = wydanie.id_wydania)
+	JOIN kategoria kat ON (ksiazka.id_kategorii = kat.id_kategorii)
+	JOIN wydawnictwo wydaw ON (wydanie.id_wydawnictwa = wydaw.id_wydawnictwa)
+	JOIN autor ON (ksiazka.id_autora = autor.id_autora);
+	
+
+CREATE OR REPLACE VIEW KARY_VIEW AS
+SELECT distinct karta.id_karty, imie, nazwisko, SUM(kwota) OVER (PARTITION BY karta.id_karty) "do zaplaty"
+FROM karta_czytelnika karta JOIN osoba ON (karta.id_karty = osoba.id_czyt)
+	JOIN kary ON (karta.id_karty = kary.id_karty);
