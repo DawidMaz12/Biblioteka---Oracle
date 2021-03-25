@@ -7,7 +7,7 @@ BEGIN
 	ile := ile + 30;
 	UPDATE  operacja_biblioteczna SET id_typ_ope = 2, do_kiedy = ile  WHERE id_ope = id_operacji;
 	UPDATE	kary SET do_kiedy = ile where id_ope = id_operacji;
-	EXECUTE OBLICZ_KARY(id_ope);
+	OBLICZ_KARY(id_ope);
 END;
 /
 	
